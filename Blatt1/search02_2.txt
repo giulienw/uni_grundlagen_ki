@@ -1,0 +1,7 @@
+Graph: Straßen wie angegeben, zum Beispiel Würzburg–Nürnberg 103 km, Nürnberg–München 167 km, Augsburg–München 84 km.
+
+Test der Luftlinien-Heuristik: Für fast alle Städte gilt h_raw kleiner oder gleich den echten Restkosten h*. Ausnahme ist Augsburg, dort liegen 124 km Luftlinie über den tatsächlichen 84 km, also nicht zulässig.
+
+Korrektur: Luftlinienwerte mit dem Faktor 0.6758 skalieren. Dadurch wird h(Augsburg) zu 84 km und alle anderen Werte bleiben unter den realen Restkosten. Die neue Heuristik ist zulässig und informativer als die Nullheuristik.
+
+A*-Ergebnis: Mit dieser Heuristik findet A* in drei Iterationen den Pfad Würzburg → Nürnberg → München mit 270 km und einer maximalen Frontiergröße von vier Einträgen.

@@ -1,0 +1,5 @@
+Search.04 – Optimalität von A* kompakt
+
+Zulässige Heuristik bedeutet: h(n) bleibt für jeden Knoten unter den echten Restkosten.
+
+Kernidee: Angenommen A* zieht einen suboptimalen Zielknoten z aus der Warteschlange. Auf dem optimalen Pfad existiert dann ein noch nicht expandierter Knoten n mit f(n) = g(n) + h(n) höchstens so groß wie die optimalen Gesamtkosten, während f(z) größer ist. A* hätte n daher vor z bearbeiten müssen – das ist der Widerspruch, also liefert Tree-A* mit zulässiger Heuristik immer den optimalen Pfad.

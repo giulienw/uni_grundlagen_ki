@@ -1,0 +1,8 @@
+Zustand: Tupel aus Elben links, Orks links und der Position des Pferds. Die rechte Seite ergibt sich durch Differenz. Sicherheitsregel: Auf jedem Ufer darf die Zahl der Orks die der Elben nur dann übersteigen, wenn dort keine Elben stehen.
+
+Start und Ziel: Von 3 Elben und 3 Orks mit Pferd links zum Zustand mit allen sechs Figuren und Pferd rechts.
+
+Aktionen: Pferd transportiert immer eins oder zwei Wesen, zulässig sind zwei Elben, zwei Orks, ein Elf und ein Ork, nur ein Elf oder nur ein Ork.
+
+Zustandsraum: 16 sichere Zustände. Beispielhafter BFS-Pfad:
+3,3,L → 3,1,R → 3,2,L → 3,0,R → 3,1,L → 1,1,R → 2,2,L → 0,2,R → 0,3,L → 0,1,R → 1,1,L → 0,0,R.

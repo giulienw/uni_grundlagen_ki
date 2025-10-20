@@ -1,0 +1,5 @@
+Was klappt schon? Autonome Service- und Lagerroboter, KI-gestützte Planung (Navigation, Supply Chain) sowie Sprachsysteme mit großen Sprachmodellen.
+
+Wo hakt es? Vollautonomes Fahren im Mischverkehr, verlässliche KI-Diagnostik ohne Ärztinnen und Ärzte, flexible Generalisten-Roboter.
+
+Gesellschaftliche Effekte: Chancen bedeuten Effizienz, Sicherheit und personalisierte Angebote. Risiken umfassen Jobverschiebungen, hohen Energiebedarf, Desinformation und Verzerrungen. Wichtig bleiben klare Verantwortlichkeiten, Datenschutz und Transparenz.

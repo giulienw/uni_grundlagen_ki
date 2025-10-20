@@ -1,0 +1,3 @@
+Definition: Eine zulässige Heuristik h1 dominiert h2, wenn h1 für jeden Knoten mindestens so große Werte liefert wie h2 und trotzdem nie über den echten Restkosten liegt.
+
+Folge für A*: Mit h1 expandiert A* höchstens so viele Knoten wie mit h2. Beispiel: die Nullheuristik gegenüber der zulässigen Luftlinie zur Zielstadt.
