@@ -1,0 +1,8 @@
+- Ablauf: Population initialisieren → Fitness berechnen → Selektion → Crossover → Mutation → (optional) Elitismus → prüfen auf Optimum bzw. Max-Generationen. Fitnessbewertungen werden gezählt.
+- Messgrößen: Beste Fitness pro Generation, Evaluierungen bis Lösung, Erfolgsrate, Laufzeit. Aggregation pro Konfiguration (Mittelwert, Std, Erfolgsquote).
+- Variationsfaktoren:
+  1. Selektion: Roulette vs. Turnier (k=3).
+  2. Crossover: PMX vs. OX (Permutation) bzw. Uniform vs. One-Point (Färbung).
+  3. Mutationsrate: 0,02 vs. 0,1.
+- Experimente: Für jede Kombination 100 Läufe, reproduzierbare Seeds (Basis + Laufindex).
+- Optimum: 8-Queens = 28 (alle Paare konfliktfrei), MapColoring = konfliktfrei mit ≤4 Farben (Fitness = maximale Punktzahl).

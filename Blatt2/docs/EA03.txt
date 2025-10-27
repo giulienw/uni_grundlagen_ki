@@ -1,0 +1,22 @@
+EA.03 – Anwendungen Evolutionärer Algorithmen
+
+„Here’s Waldo“:
+- Fitness: Erwartete Suchzeit über eine Wahrscheinlichkeitskarte; kürzer = besser.
+- Kodierung: Permutation der Bildzonen, legt die Suchreihenfolge fest.
+- Operatoren: Order/PMX-Crossover, Swap/Insert-Mutation, Turnier- oder elitäre Selektion.
+
+Evolution Simulator:
+- Fitness: Überlebensdauer oder eingesammelte Nahrung der Kreaturen.
+- Kodierung: DNA-Array mit Gleitkommazahlen, steuert Bewegungsparameter.
+- Operatoren: Einfaches Crossover (ein Punkt oder uniform), Mutation via kleine zufällige Änderungen.
+
+american fuzzy lop (AFL):
+- Fitness: Erreichtes neues Coverage (neue Kanten im Instrumentierungsbitmap).
+- Kodierung: Bytefolgen als Eingaben.
+- Operatoren: Bit-/Byte-Flips, Increment/Decrement, Splice-Crossover, tokenbasierte Mutationen.
+
+Weitere Anwendungen:
+- Flugzeugtragflächen-Design: Geometrieparameter, Fitness = Lift/Drag aus Simulation.
+- Hyperparameter-Tuning: Parametervektoren, Fitness = Validierungsperformance.
+- Game-Balancing: Parameter für Gegner/Regeln, Fitness aus Simulationsmetriken.
+- Symbolische Regression (Genetic Programming): Syntaxbäume, Fitness = Fehler auf Daten; Crossover tauscht Teilbäume, Mutation ersetzt Unterausdrücke.

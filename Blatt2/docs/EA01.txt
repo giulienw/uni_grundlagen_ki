@@ -1,0 +1,15 @@
+8-Queens-Problem:
+- Kodierung: Permutation 0–7 (Zeile = Index, Spalte = Wert). Zeilen- und Spaltenkonflikte sind damit ausgeschlossen, diagonale Konflikte bewertet die Fitness.
+- Crossover: PMX oder Order-Crossover, beide erhalten die Permutation.
+- Mutation: Swap-Mutation (Tausch zweier Positionen) oder selten Insert-Mutation. Bleibt in der Permutationsdomäne.
+- Fitness: Anzahl nicht angreifender Paare, z.B. `28 - diagonale Konflikte`.
+- Begründung: Permutation reduziert den Suchraum, PMX/OX kombinieren Teillösungen gut, Swap ändert Lösungen kontrolliert.
+- Für Simulated Annealing: gleiche Repräsentation, Kostenfunktion = Konfliktanzahl, Nachbarschaft = Swap, Temperatur- und Kühlplan + Metropolis-Akzeptanz.
+
+Landkarten-Färbeproblem:
+- Start mit fünf Farben, Ziel: konfliktfreie Färbung mit möglichst wenigen Farben.
+- Kodierung: Liste der Regionenfarben.
+- Crossover: uniform oder 1-Punkt, mischt Regionenfarben ohne Permutationszwang.
+- Mutation: Farbindize einzelner Regionen ändern (konfliktführende Regionen priorisieren).
+- Fitness: Gewichtete Summe aus Konflikten + verwendeten Farben (`α` groß für Konflikte, `β` klein für Farbenzahl).
+- Simulated Annealing: gleiche Kodierung, Kosten = Konflikte plus Farbanzahl, Nachbarschaft = Umfärben einer Region.
