@@ -1,0 +1,8 @@
+Ich fixiere zunächst die Vorgabe alpha = {v1 -> 2}. Damit reduziert sich der Wertebereich von v1 auf {2}, während v2, v3 und v4 noch mit D = {0, 1, 2, 3, 4, 5} starten.
+
+Für Kantenkonsistenz betrachte ich alle Bögen, die durch die Belegung von v1 Einfluss haben. Aus c1 (v1,v2) folgt unmittelbar, dass nur noch v2 = 1 mit der Summe 3 vereinbar ist. Das Ungleichheitsconstraint c4 bindet v4 zwar noch nicht, aber über c3 (v1,v3) muss v3 mindestens so groß wie v1 sein, also v3 ∈ {2, 3, 4, 5}. Wenn ich diese eingeschränkte Domäne erneut mit c2 (v2,v3) abgleiche, bleiben nur Werte für v3 übrig, die gemeinsam mit v2 = 1 die Schranke x + y <= 3 erfüllen; dadurch schrumpft D_v3 auf {2}. Jetzt zwingt c4 (v3,v4) schließlich v4 dazu, alle Werte außer 2 beizubehalten: D_v4 = {0, 1, 3, 4, 5}. Die kantenkonsistente Situation lautet damit:
+v1 = {2}, v2 = {1}, v3 = {2}, v4 = {0, 1, 3, 4, 5}.
+
+Beim Forward Checking nutze ich nur die direkten Nachbarn der gerade belegten Variable v1. Das Summenconstraint c1 reduziert v2 ebenfalls auf {1}, und aus c3 resultiert v3 ∈ {2, 3, 4, 5}. Weiter propagate ich hier jedoch nicht, deshalb bleibt v4 mit dem vollen Wertebereich {0, 1, 2, 3, 4, 5} stehen.
+
+Der Vergleich zeigt: Kantenkonsistenz filtert transitiv weiter und entfernt dadurch deutlich mehr Werte (insbesondere den Konfliktwert 2 bei v4), während Forward Checking zwar günstiger zu berechnen ist, aber nur die unmittelbaren Nachbarn der aktuellen Belegung säubert.

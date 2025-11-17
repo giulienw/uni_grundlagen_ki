@@ -1,0 +1,25 @@
+Der Constraint-Graph besteht aus vier Variablen v1, v2, v3 und v4. Zwischen v1 und v2 liegt das Summen-Constraint c1 (x + y = 3), v2 und v3 sind über c2 (x + y <= 3) verbunden, v1 und v3 über c3 (x <= y) und v3 und v4 über c4 (x != y). Alle Variablen starten mit dem gemeinsamen Wertebereich D = {0, 1, 2, 3, 4, 5}.
+
+Zu Beginn der AC-3-Ausführung steht die Queue in der Reihenfolge [(v1,v2), (v2,v1), (v2,v3), (v3,v2), (v1,v3), (v3,v1), (v3,v4), (v4,v3)]. In Iteration 1 reduziere ich entlang (v1,v2) alle Werte, die keine passende Summe ergeben, und erhalte D_v1 = {0, 1, 2, 3}. Nach dem Zurückschreiben wandert die Queue-Erweiterung (v2,v1) und (v3,v1) ans Ende.
+
+Iteration 2 startet mit der Queue [(v2,v1), (v2,v3), (v3,v2), (v1,v3), (v3,v1), (v3,v4), (v4,v3), (v2,v1), (v3,v1)]. Über den Bogen (v2,v1) verwerfe ich die Werte 4 und 5 und erhalte D_v2 = {0, 1, 2, 3}. Die neuen Rückmeldungen (v1,v2) und (v3,v2) werden hinten angereiht.
+
+Iteration 3 sieht die Queue [(v2,v3), (v3,v2), (v1,v3), (v3,v1), (v3,v4), (v4,v3), (v2,v1), (v3,v1), (v1,v2), (v3,v2)]. Der Bogen (v2,v3) verändert nichts, also bleiben alle Domänen unverändert.
+
+Iteration 4 beginnt mit [(v3,v2), (v1,v3), (v3,v1), (v3,v4), (v4,v3), (v2,v1), (v3,v1), (v1,v2), (v3,v2)]. Beim Prüfen von (v3,v2) entferne ich die Werte 4 und 5 aus D_v3, sodass D_v3 = {0, 1, 2, 3} gilt. Entsprechend ergänze ich (v1,v3), (v4,v3) und (v2,v3) am Queue-Ende.
+
+Iteration 5 startet mit [(v1,v3), (v3,v1), (v3,v4), (v4,v3), (v2,v1), (v3,v1), (v1,v2), (v3,v2), (v1,v3), (v4,v3), (v2,v3)]. Der Bogen (v1,v3) ist bereits konsistent, keine Domäne ändert sich.
+
+Iteration 6 verarbeitet die Queue [(v3,v1), (v3,v4), (v4,v3), (v2,v1), (v3,v1), (v1,v2), (v3,v2), (v1,v3), (v4,v3), (v2,v3)]. Auch (v3,v1) führt zu keiner weiteren Kürzung.
+
+Iteration 7 sieht [(v3,v4), (v4,v3), (v2,v1), (v3,v1), (v1,v2), (v3,v2), (v1,v3), (v4,v3), (v2,v3)]. Der Ungleich-Bogen (v3,v4) belässt alle Werte in D_v3 und D_v4.
+
+Iteration 8 mit Queue [(v4,v3), (v2,v1), (v3,v1), (v1,v2), (v3,v2), (v1,v3), (v4,v3), (v2,v3)] betrachtet (v4,v3) und findet ebenfalls keine widersprüchlichen Werte.
+
+Iteration 9 nutzt [(v2,v1), (v3,v1), (v1,v2), (v3,v2), (v1,v3), (v4,v3), (v2,v3)]. Für (v2,v1) bleibt alles stabil, D_v2 = {0, 1, 2, 3}.
+
+Iteration 10 arbeitet mit [(v3,v1), (v1,v2), (v3,v2), (v1,v3), (v4,v3), (v2,v3)]. Der Bogen (v3,v1) bestätigt nur erneut die bestehende Konsistenz.
+
+Iteration 11 hat die Queue [(v1,v2), (v3,v2), (v1,v3), (v4,v3), (v2,v3)], Iteration 12 anschließend [(v3,v2), (v1,v3), (v4,v3), (v2,v3)], Iteration 13 [(v1,v3), (v4,v3), (v2,v3)] und Iteration 14 [(v4,v3), (v2,v3)]. In keinem dieser Durchläufe kommen neue Einschränkungen hinzu.
+
+In Iteration 15 bleibt schließlich nur noch der Bogen (v2,v3) in der Queue; auch er verändert nichts, sodass die Queue danach leer ist. Die endgültigen Wertebereiche lauten D_v1 = {0, 1, 2, 3}, D_v2 = {0, 1, 2, 3}, D_v3 = {0, 1, 2, 3} und D_v4 = {0, 1, 2, 3, 4, 5}. Das CSP ist damit kantenkonsistent, aber noch nicht vollständig gelöst.
